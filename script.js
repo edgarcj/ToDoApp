@@ -66,3 +66,10 @@ function updateLS() {
 
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("./sw.js")
+    .then((reg) => console.log("Registro de sw exitoso", reg))
+    .then((err) => console.warn("error al tratar de registrar el sw", err));
+}
